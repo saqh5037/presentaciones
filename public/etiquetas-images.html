@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imágenes para Etiquetas de Bernardo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .image-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-box img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: contain;
+        }
+        .image-box h3 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        .image-box p {
+            font-size: 12px;
+            color: #666;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h1>📌 Instrucciones para agregar las imágenes reales</h1>
+        <ol>
+            <li>Guarda las imágenes de Spiderman y Sonic en la carpeta <code>public/</code> del proyecto</li>
+            <li>Nombra los archivos como:
+                <ul>
+                    <li><code>spiderman.png</code> - Imagen de Spiderman colgando</li>
+                    <li><code>sonic.png</code> - Imagen de Sonic corriendo</li>
+                    <li><code>ring.png</code> - Anillo dorado de Sonic</li>
+                </ul>
+            </li>
+            <li>Actualiza el archivo <code>EtiquetasBernardo.jsx</code> con las rutas:
+                <ul>
+                    <li>Spiderman: <code>src="/spiderman.png"</code></li>
+                    <li>Sonic: <code>src="/sonic.png"</code></li>
+                    <li>Ring: <code>src="/ring.png"</code></li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="image-container">
+        <div class="image-box">
+            <h3>🕷️ Spiderman</h3>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Placeholder Spiderman">
+            <p>Reemplazar con: <code>spiderman.png</code></p>
+            <p>Imagen de Spiderman colgando (como la que proporcionaste)</p>
+        </div>
+
+        <div class="image-box">
+            <h3>💨 Sonic</h3>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Placeholder Sonic">
+            <p>Reemplazar con: <code>sonic.png</code></p>
+            <p>Imagen de Sonic corriendo (como la que proporcionaste)</p>
+        </div>
+
+        <div class="image-box">
+            <h3>💍 Anillo</h3>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Placeholder Ring">
+            <p>Reemplazar con: <code>ring.png</code></p>
+            <p>Anillo dorado de Sonic (como el que proporcionaste)</p>
+        </div>
+    </div>
+
+    <div class="instructions" style="margin-top: 30px;">
+        <h2>📝 Código actualizado para usar las imágenes locales</h2>
+        <p>Una vez que hayas guardado las imágenes en <code>public/</code>, actualiza el componente:</p>
+        <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;">
+// En EtiquetasBernardo.jsx
+{selectedTheme === 'spiderman' ? (
+  &lt;div className="spiderman-image-container"&gt;
+    &lt;img 
+      src="/spiderman.png"
+      alt="Spiderman"
+      className="theme-image spiderman-real"
+    /&gt;
+  &lt;/div&gt;
+) : (
+  &lt;div className="sonic-image-container"&gt;
+    &lt;img 
+      src="/sonic.png"
+      alt="Sonic"
+      className="theme-image sonic-real"
+    /&gt;
+    &lt;img 
+      src="/ring.png"
+      alt="Ring"
+      className="sonic-ring"
+    /&gt;
+  &lt;/div&gt;
+)}</pre>
+    </div>
+</body>
+</html>

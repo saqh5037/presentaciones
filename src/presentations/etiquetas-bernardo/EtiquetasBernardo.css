@@ -1,0 +1,520 @@
+.etiquetas-container {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0066cc 0%, #cc0000 100%);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Header */
+.etiquetas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #0066cc, #004499);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: linear-gradient(135deg, #0055bb, #003388);
+  box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+}
+
+.header-title h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  background: linear-gradient(135deg, #c8102e, #0066cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-title p {
+  margin: 5px 0 0 0;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #c8102e, #8b0000);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(200, 16, 46, 0.3);
+}
+
+/* Filter Tabs */
+.filter-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  overflow-x: auto;
+}
+
+.filter-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  color: #333;
+  font-weight: 500;
+}
+
+.filter-tabs button:hover {
+  background: #f0f0f0;
+  border-color: #0066cc;
+}
+
+.filter-tabs button.active {
+  background: linear-gradient(135deg, #c8102e, #0066cc);
+  color: white;
+  border-color: transparent;
+}
+
+/* Labels Grid */
+.labels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 40px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+}
+
+/* Individual Label */
+.label {
+  position: relative;
+  background: white;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Large labels for books */
+.label-large {
+  height: 130px;
+  padding: 15px;
+  grid-column: span 2;
+}
+
+.label:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: #c8102e;
+}
+
+/* Label types with different backgrounds */
+.label-pencils {
+  background: linear-gradient(135deg, #fff 0%, #ffe6e6 100%);
+}
+
+.label-books {
+  background: linear-gradient(135deg, #fff 0%, #e6f0ff 100%);
+}
+
+.label-colors {
+  background: linear-gradient(135deg, #fff 0%, #fff0e6 100%);
+}
+
+.label-eraser {
+  background: linear-gradient(135deg, #fff 0%, #f0e6ff 100%);
+}
+
+.label-sharpener {
+  background: linear-gradient(135deg, #fff 0%, #e6fff0 100%);
+}
+
+.label-others {
+  background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+}
+
+/* Spider web background */
+.spider-web {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(circle at center, transparent 30%, #000 30%, #000 31%, transparent 31%),
+    linear-gradient(0deg, transparent 48%, #000 48%, #000 52%, transparent 52%),
+    linear-gradient(45deg, transparent 48%, #000 48%, #000 52%, transparent 52%),
+    linear-gradient(90deg, transparent 48%, #000 48%, #000 52%, transparent 52%),
+    linear-gradient(135deg, transparent 48%, #000 48%, #000 52%, transparent 52%);
+  background-size: 100% 100%;
+}
+
+/* Theme icon */
+.theme-icon {
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
+  position: relative;
+}
+
+.label-large .theme-icon {
+  width: 70px;
+  height: 70px;
+  margin-right: 15px;
+}
+
+.spider-logo, .sonic-logo {
+  width: 100%;
+  height: 100%;
+}
+
+/* Spiderman image container */
+.spiderman-image-container,
+.sonic-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sonic-ring {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: -5px;
+  right: -5px;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.spiderman-image {
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="spiderGrad"><stop offset="0%25" stop-color="%23ff0000"/><stop offset="100%25" stop-color="%23cc0000"/></radialGradient><pattern id="webPattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M5 0 L5 10 M0 5 L10 5" stroke="%23000" stroke-width="0.3" opacity="0.4"/></pattern></defs><circle cx="50" cy="50" r="40" fill="url(%23spiderGrad)"/><rect x="10" y="10" width="80" height="80" fill="url(%23webPattern)" opacity="0.3"/><path d="M50 15 C35 15 25 25 25 40 C25 42 26 44 27 45 L50 65 L73 45 C74 44 75 42 75 40 C75 25 65 15 50 15" fill="%23cc0000" stroke="%23000" stroke-width="1"/><path d="M50 25 L30 35 L30 45 L50 60 L70 45 L70 35 Z" fill="none" stroke="%23000" stroke-width="0.5"/><ellipse cx="38" cy="35" rx="10" ry="12" fill="%23fff"/><ellipse cx="62" cy="35" rx="10" ry="12" fill="%23fff"/><path d="M38 35 L32 35 L38 41 L44 35 Z" fill="%23000"/><path d="M62 35 L56 35 L62 41 L68 35 Z" fill="%23000"/><path d="M50 20 L50 60 M30 30 L70 30 M30 40 L70 40 M35 25 L65 25 M35 50 L65 50" stroke="%23000" stroke-width="0.3" opacity="0.5"/></svg>');
+  background-size: cover;
+  background-position: center;
+}
+
+.spider-logo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sonic theme specific */
+.theme-sonic {
+  background: linear-gradient(135deg, #e6f3ff 0%, #fff4e6 100%) !important;
+}
+
+.theme-sonic .owner-name {
+  color: #0066ff !important;
+}
+
+.theme-sonic .label-type {
+  color: #ff6600 !important;
+}
+
+/* Sonic rings background */
+.sonic-rings {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 60px;
+  height: 60px;
+  opacity: 0.15;
+}
+
+.sonic-rings::before,
+.sonic-rings::after {
+  content: '';
+  position: absolute;
+  border: 3px solid #ffcc00;
+  border-radius: 50%;
+}
+
+.sonic-rings::before {
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  left: 10px;
+}
+
+.sonic-rings::after {
+  width: 25px;
+  height: 25px;
+  top: 17px;
+  left: 17px;
+}
+
+/* Label content */
+.label-content {
+  flex: 1;
+  text-align: left;
+}
+
+.owner-name {
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin: 0;
+  color: #c8102e;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', cursive;
+  line-height: 1.2;
+}
+
+.label-large .owner-name {
+  font-size: 1.15rem;
+}
+
+.grade-info {
+  font-size: 0.7rem;
+  color: #666;
+  margin: 2px 0 3px 0;
+  font-style: italic;
+}
+
+.label-large .grade-info {
+  font-size: 0.85rem;
+}
+
+.label-type {
+  font-size: 0.8rem;
+  color: #0066cc;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.label-large .label-type {
+  font-size: 1rem;
+}
+
+/* Corner decoration */
+.corner-decoration {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.label:hover .corner-decoration {
+  opacity: 0.6;
+  transform: rotate(10deg);
+}
+
+.theme-sonic .corner-decoration {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Floating character animation */
+.floating-character {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Theme selector */
+.theme-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  justify-content: center;
+}
+
+.theme-selector button {
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.theme-selector button:hover {
+  transform: scale(1.05);
+}
+
+.theme-selector button.active {
+  border-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Print instructions */
+.print-instructions {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.print-instructions h3 {
+  color: #c8102e;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.print-instructions ol {
+  color: #666;
+  line-height: 1.8;
+  padding-left: 20px;
+}
+
+.print-instructions li {
+  margin-bottom: 8px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .etiquetas-container {
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  .labels-grid {
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2mm;
+    page-break-inside: avoid;
+  }
+
+  .label {
+    border: 1px solid #999 !important;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    height: 80px;
+    padding: 8px !important;
+  }
+  
+  .label-large {
+    height: 110px !important;
+    grid-column: span 2 !important;
+  }
+
+  .spider-web {
+    opacity: 0.05 !important;
+  }
+
+  .corner-decoration {
+    opacity: 0.2 !important;
+  }
+
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .etiquetas-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .header-title h1 {
+    font-size: 2rem;
+  }
+
+  .filter-tabs {
+    flex-wrap: wrap;
+  }
+
+  .labels-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .floating-character {
+    width: 40px;
+    height: 40px;
+  }
+}
