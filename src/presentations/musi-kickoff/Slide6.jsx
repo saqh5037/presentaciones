@@ -10,8 +10,8 @@ function Slide6() {
     },
     {
       icon: Layers,
-      title: "Editor Visual de Espacios",
-      description: "Herramienta drag & drop para diseñar y modificar layouts de tienda"
+      title: "Visualizador de Espacios",
+      description: "Herramienta para visualizar layouts de tienda"
     },
     {
       icon: BarChart,
