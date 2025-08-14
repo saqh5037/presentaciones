@@ -7,21 +7,21 @@ function Slide9() {
       icon: FileText,
       title: "Firma de Contrato",
       description: "Formalización legal del proyecto",
-      date: "Esta semana",
+      date: "Semana 1",
       status: "urgent"
     },
     {
       icon: Users,
       title: "Reunión de Requerimientos",
       description: "Sesión detallada con usuarios clave",
-      date: "Próxima semana",
+      date: "Semana 2",
       status: "upcoming"
     },
     {
       icon: Calendar,
       title: "Cronograma Detallado",
       description: "Definición de milestones y entregables",
-      date: "Próxima semana",
+      date: "Semana 2",
       status: "upcoming"
     },
     {
@@ -35,7 +35,7 @@ function Slide9() {
       icon: CheckSquare,
       title: "Primera Demo",
       description: "Presentación de avances iniciales",
-      date: "Fin de Agosto",
+      date: "Semana 4",
       status: "planned"
     }
   ]
