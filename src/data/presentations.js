@@ -43,6 +43,36 @@ export const presentations = [
     tags: ['FIFCO', 'Musi', 'Retail', 'Gestión', 'Costa Rica'],
     status: 'active',
     path: '/presentation/musi-kickoff'
+  },
+  {
+    id: 'musi-kickoffV2',
+    title: 'Musi - Kickoff Meeting V2',
+    subtitle: 'Proyecto Catálogo de Espacios (Versión 2)',
+    description: 'Versión actualizada de la presentación de inicio del proyecto de gestión de espacios comerciales para Musi y Mussmanni',
+    category: 'WBI',
+    thumbnail: '/musi/Desktop - 29.png',
+    createdAt: '2025-08-19',
+    updatedAt: '2025-08-19',
+    slides: 10,
+    duration: '60 min',
+    tags: ['FIFCO', 'Musi', 'Retail', 'Gestión', 'Costa Rica', 'V2'],
+    status: 'active',
+    path: '/presentation/musi-kickoffV2'
+  },
+  {
+    id: 'dynamtek-centro-mando',
+    title: 'Centro de Mando para Laboratorios',
+    subtitle: 'El Laboratorio del Futuro, Hoy',
+    description: 'Presentación ejecutiva sobre transformación digital y centro de mando integral para laboratorios clínicos',
+    category: 'Dynantek',
+    thumbnail: '/thumbnails/dynamtek-centro-mando.png',
+    createdAt: '2025-01-15',
+    updatedAt: '2025-01-15',
+    slides: 11,
+    duration: '30 min',
+    tags: ['Centro de Mando', 'IA', 'Transformación Digital', 'Laboratorio', 'Dashboard', 'KPIs'],
+    status: 'active',
+    path: '/presentation/dynamtek-centro-mando'
   }
 ]
 

@@ -24,7 +24,7 @@ import Slide10 from './Slide10'
  * Componente de vista de impresión
  * Renderiza todas las 10 slides de la presentación en formato imprimible
  */
-function MusiPrintView() {
+function MusiPrintViewV2() {
   const navigate = useNavigate()
   
   // Configuración de las slides a mostrar
@@ -162,6 +162,7 @@ function MusiPrintView() {
             width: 100% !important;
             height: 100vh !important;
             margin: 0 !important;
+            padding: 0 !important;
             box-shadow: none !important;
             page-break-after: always !important;
             page-break-inside: avoid !important;
@@ -171,11 +172,17 @@ function MusiPrintView() {
             page-break-after: auto !important;
           }
           
+          .slide-fifco,
           .musi-slide {
             width: 100% !important;
-            height: 100vh !important;
-            padding: 40px !important;
+            height: auto !important;
+            min-height: 50vh !important;
+            padding: 30px 20px !important;
+            margin: 20px 0 !important;
             box-sizing: border-box !important;
+            overflow: visible !important;
+            transform: scale(0.8) !important;
+            transform-origin: top center !important;
           }
           
           /* Asegurar que los colores se impriman */
@@ -185,21 +192,49 @@ function MusiPrintView() {
             color-adjust: exact !important;
           }
           
-          /* Ajustar tamaños de fuente para impresión */
+          /* Ajustar tamaños de fuente para impresión - ya escalados por el transform */
+          .slide-fifco h1,
           .musi-slide h1 {
-            font-size: 2.5rem !important;
+            font-size: 3rem !important;
           }
           
+          .slide-fifco h2,
           .musi-slide h2 {
+            font-size: 2.2rem !important;
+          }
+          
+          .slide-fifco h3,
+          .musi-slide h3 {
             font-size: 1.8rem !important;
           }
           
-          .musi-slide h3 {
-            font-size: 1.4rem !important;
+          .slide-fifco p,
+          .musi-slide p {
+            font-size: 1.2rem !important;
           }
           
-          .musi-slide p {
-            font-size: 1rem !important;
+          /* Ajustes específicos para elementos problemáticos */
+          .scope-columns {
+            display: flex !important;
+            gap: 2rem !important;
+            page-break-inside: avoid !important;
+          }
+          
+          .scope-included,
+          .scope-excluded {
+            flex: 1 !important;
+            page-break-inside: avoid !important;
+          }
+          
+          .objectives-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 1.5rem !important;
+            page-break-inside: avoid !important;
+          }
+          
+          .objective-card {
+            page-break-inside: avoid !important;
           }
           
           /* Ocultar elementos de navegación */
@@ -212,15 +247,43 @@ function MusiPrintView() {
           .export-button {
             display: none !important;
           }
+          
+          /* Ajustes específicos para contenedores con mucho contenido */
+          .fifco-container,
+          .about-container,
+          .scope-container,
+          .objectives-container {
+            padding: 20px !important;
+            height: auto !important;
+            min-height: auto !important;
+            max-height: calc(100vh - 80px) !important;
+          }
+          
+          /* Ajustar elementos que pueden cortarse */
+          .timeline-grid,
+          .features-grid,
+          .objectives-grid,
+          .scope-columns {
+            transform: scale(0.85) !important;
+            transform-origin: top center !important;
+          }
+          
+          /* Asegurar que nada se corte */
+          .slide-container {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 100% !important;
+          }
         }
         
         @page {
-          size: A4 landscape;
-          margin: 0;
+          size: legal portrait;
+          margin: 10mm 10mm 10mm 10mm;
         }
       `}</style>
     </>
   )
 }
 
-export default MusiPrintView
+export default MusiPrintViewV2

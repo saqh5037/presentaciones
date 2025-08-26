@@ -149,15 +149,6 @@ function EtiquetasBernardo() {
       <div className="etiquetas-container">
         {/* Header */}
         <div className="etiquetas-header no-print">
-        <motion.button
-          className="back-button"
-          onClick={() => navigate('/')}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Home size={20} />
-          <span>Dashboard</span>
-        </motion.button>
 
         <div className="header-title">
           <h1>Etiquetas de Bernardo Alejandro</h1>

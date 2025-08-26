@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ChevronUp, Menu, X, Home } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import './MusiKickoff.css'
+import './MusiKickoffV2.css'
 
 // Import all slide components
 import Slide1 from './Slide1'
@@ -16,7 +16,7 @@ import Slide8 from './Slide8'
 import Slide9 from './Slide9'
 import Slide10 from './Slide10'
 
-function MusiKickoffPresentation() {
+function MusiKickoffPresentationV2() {
   const navigate = useNavigate()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -84,7 +84,7 @@ function MusiKickoffPresentation() {
   }, [currentSlide])
 
   return (
-    <div className="app musi-presentation">
+    <div className="app musi-presentationV2">
 
       {/* Navigation Menu */}
       <div className={`menu ${menuOpen ? 'open' : ''}`}>
@@ -209,4 +209,4 @@ function MusiKickoffPresentation() {
   )
 }
 
-export default MusiKickoffPresentation
+export default MusiKickoffPresentationV2

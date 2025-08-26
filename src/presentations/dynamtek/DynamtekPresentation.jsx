@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ChevronUp, Menu, X, Home } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import './MusiKickoff.css'
+import './Dynamtek.css'
 
 // Import all slide components
 import Slide1 from './Slide1'
@@ -15,23 +15,25 @@ import Slide7 from './Slide7'
 import Slide8 from './Slide8'
 import Slide9 from './Slide9'
 import Slide10 from './Slide10'
+import Slide11 from './Slide11'
 
-function MusiKickoffPresentation() {
+function DynamtekPresentation() {
   const navigate = useNavigate()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   
   const slides = [
-    { component: Slide1, title: 'Bienvenida' },
-    { component: Slide2, title: 'Agenda' },
-    { component: Slide3, title: 'Sobre el Proyecto' },
-    { component: Slide4, title: 'Objetivos' },
-    { component: Slide5, title: 'Alcance' },
-    { component: Slide6, title: 'Funcionalidades Clave' },
-    { component: Slide7, title: 'Cronograma' },
-    { component: Slide8, title: 'Equipo de Trabajo' },
-    { component: Slide9, title: 'Próximos Pasos' },
-    { component: Slide10, title: 'Q&A' }
+    { component: Slide1, title: 'Título' },
+    { component: Slide2, title: 'La Barrera Invisible' },
+    { component: Slide3, title: 'Centro de Mando Integral' },
+    { component: Slide4, title: 'El Impacto' },
+    { component: Slide5, title: 'Modelo a Seguir' },
+    { component: Slide6, title: 'Ventaja Tecnológica' },
+    { component: Slide7, title: 'Ruta de Transformación' },
+    { component: Slide8, title: 'Valor Estratégico' },
+    { component: Slide9, title: 'Encrucijada Estratégica' },
+    { component: Slide10, title: 'Próximos Pasos' },
+    { component: Slide11, title: 'Q&A' }
   ]
 
   const CurrentSlideComponent = slides[currentSlide].component
@@ -84,7 +86,7 @@ function MusiKickoffPresentation() {
   }, [currentSlide])
 
   return (
-    <div className="app musi-presentation">
+    <div className="app dynamtek-presentation">
 
       {/* Navigation Menu */}
       <div className={`menu ${menuOpen ? 'open' : ''}`}>
@@ -104,7 +106,10 @@ function MusiKickoffPresentation() {
               exit={{ x: -300, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <img src="/musi/Desktop - 49.svg" alt="Musi" className="menu-logo" />
+              <div className="menu-logo">
+                <h2 style={{ color: '#ffd89b', margin: 0 }}>DYNAMTEK</h2>
+                <p style={{ fontSize: '0.8rem', color: '#ccc', margin: 0 }}>Centro de Mando</p>
+              </div>
               <h2>Navegación</h2>
               <ul>
                 {slides.map((slide, index) => (
@@ -209,4 +214,4 @@ function MusiKickoffPresentation() {
   )
 }
 
-export default MusiKickoffPresentation
+export default DynamtekPresentation

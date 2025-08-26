@@ -94,19 +94,6 @@ function LabsisExpertPresentation() {
 
   return (
     <div className="app">
-      {/* Home Button */}
-      <motion.button
-        className="home-button"
-        onClick={() => navigate('/')}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <Home size={20} />
-        <span>Dashboard</span>
-      </motion.button>
 
       {/* Navigation Menu */}
       <div className={`menu ${menuOpen ? 'open' : ''}`}>
