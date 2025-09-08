@@ -73,6 +73,21 @@ export const presentations = [
     tags: ['Centro de Mando', 'IA', 'Transformación Digital', 'Laboratorio', 'Dashboard', 'KPIs'],
     status: 'active',
     path: '/presentation/dynamtek-centro-mando'
+  },
+  {
+    id: 'claude-code-wbi',
+    title: 'Claude Code para WBI',
+    subtitle: 'Tu Año de Desarrollo Reimaginado',
+    description: 'Presentación interactiva estilo Spotify Wrapped sobre cómo Claude Code multiplica 10x la productividad del equipo de desarrollo',
+    category: 'WBI',
+    thumbnail: '/thumbnails/claude-code.png',
+    createdAt: '2025-09-08',
+    updatedAt: '2025-09-08',
+    slides: 12,
+    duration: '30 min',
+    tags: ['IA', 'Productividad', 'Claude Code', 'Desarrollo', 'ROI', 'DevTools'],
+    status: 'active',
+    path: '/presentation/claude-code-wbi'
   }
 ]
 
