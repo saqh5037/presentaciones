@@ -15,37 +15,37 @@ function Slide10() {
   const roadmap = [
     {
       week: "SEMANA 1",
-      title: "First Track",
+      title: "Setup Inicial",
       icon: Rocket,
       tasks: [
-        "5 devs prueban (Franco, Diego, Roberto + 2)",
-        "Setup inicial y training (2 hrs)",
-        "Proyecto piloto: Componente FIFCO",
-        "Primeras métricas de productividad"
+        "Instalación de la extensión VS Code",
+        "Configuración de entorno y preferencias",
+        "Primeras pruebas con código real",
+        "Familiarización con comandos básicos"
       ],
       status: "start"
     },
     {
       week: "SEMANA 2-3",
-      title: "Album Completo",
+      title: "Integración Activa",
       icon: Users,
       tasks: [
-        "Todo el equipo activado (10 devs)",
-        "Cristina automatiza tests QA",
-        "Métricas en tiempo real",
+        "Uso en proyectos actuales",
+        "Generación automática de tests",
+        "Code reviews asistidos por IA",
         "Ajuste de workflows"
       ],
       status: "expand"
     },
     {
       week: "SEMANA 4",
-      title: "Platinum Status",
+      title: "Flujo Optimizado",
       icon: Trophy,
       tasks: [
-        "10x productividad medida",
-        "ROI documentado",
-        "Decisión de expansión a 15",
-        "Best practices establecidas"
+        "Flujo de trabajo completamente integrado",
+        "Best practices establecidas",
+        "Documentación automática activa",
+        "Equipo trabajando a máxima eficiencia"
       ],
       status: "success"
     }
@@ -112,7 +112,7 @@ function Slide10() {
             >
               <Calendar size={22} color="#ffd89b" />
             </motion.div>
-            <h1 style={{ margin: 0, fontSize: '2.8rem' }}>Tu Roadmap de 30 Días</h1>
+            <h1 style={{ margin: 0, fontSize: '2.8rem' }}>Plan de Adopción del Equipo</h1>
             <motion.div
               animate={{
                 scale: [1, 1.1, 1],
@@ -149,7 +149,7 @@ function Slide10() {
             textAlign: 'center'
           }}
         >
-          Empezamos HOY
+          Integración progresiva con tu flujo actual
         </motion.p>
 
         {/* Timeline */}
@@ -376,13 +376,13 @@ function Slide10() {
               >
                 <Target size={18} color="#ffd89b" />
               </motion.span>
-              Decisión Estratégica de WBI
+              Tu nueva herramienta de desarrollo
             </motion.p>
             <p style={{
               fontSize: '1rem',
               color: '#e0e0e0'
             }}>
-              Adoptando la tecnología que multiplicará nuestra productividad
+              Disponible para todo el equipo desde hoy
             </p>
           </div>
         </motion.div>

@@ -7,19 +7,19 @@ function Slide12() {
 
   const actions = [
     {
-      title: "Bienvenidos a la nueva era de desarrollo en WBI",
+      title: "Documentación completa y tutoriales",
       icon: Play
     },
     {
-      title: "Workshop de onboarding esta semana",
+      title: "Office hours: Martes y Jueves 3-5pm",
       icon: Users
     },
     {
-      title: "Claude Code: Tu nuevo compañero de código",
+      title: "Canal Slack: #claude-code-support",
       icon: Target
     },
     {
-      title: "Multiplicando nuestra productividad juntos",
+      title: "Wiki interna con casos de uso y tips",
       icon: BarChart3
     }
   ]
@@ -84,14 +84,14 @@ function Slide12() {
               marginBottom: '10px'
             }}
           >
-            Bienvenidos a la Nueva Era
+            ¡Comienza tu Journey con Claude Code!
           </motion.h1>
           <p style={{
             fontSize: '1.5rem',
             color: '#ffb347',
             fontWeight: '600'
           }}>
-            WBI adopta Claude Code como su asistente de IA
+            Tu nuevo compañero de desarrollo está listo
           </p>
         </motion.div>
 
@@ -230,7 +230,7 @@ function Slide12() {
               >
                 <Play size={20} color="#1a1a2e" fill="#1a1a2e" />
               </motion.div>
-              COMENZAMOS HOY MISMO
+              EMPEZAR A USAR CLAUDE CODE
             </span>
           </motion.button>
         </motion.div>
@@ -255,7 +255,7 @@ function Slide12() {
               marginBottom: '10px',
               fontWeight: '600'
             }}>
-              <span style={{ fontWeight: '700' }}>Samuel Quiroz</span> - Tu Champion de IA
+              <span style={{ fontWeight: '700' }}>Equipo de Soporte Técnico</span>
             </p>
             <div style={{
               display: 'flex',
@@ -270,7 +270,7 @@ function Slide12() {
                 gap: '10px'
               }}>
                 <Mail size={18} color="#ffb347" />
-                <span style={{ color: '#e0e0e0' }}>squiroz@wbinnova.com</span>
+                <span style={{ color: '#e0e0e0' }}>soporte@wbi.team</span>
               </div>
               <div style={{
                 display: 'flex',
@@ -308,7 +308,7 @@ function Slide12() {
               backgroundClip: 'text'
             }}
           >
-            WBI + Claude Code = Desarrollo 10x
+            Desarrolla más rápido, con mayor calidad
           </motion.p>
         </motion.div>
       </motion.div>

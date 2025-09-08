@@ -14,7 +14,7 @@ function Slide4() {
   const profiles = [
     {
       title: "JUNIOR → SEMI-SENIOR",
-      subtitle: "Franco, Diego",
+      subtitle: "Frontend & Backend Devs",
       icon: TrendingUp,
       metrics: {
         before: { value: 1, label: "feature/semana" },
@@ -25,7 +25,7 @@ function Slide4() {
     },
     {
       title: "JUNIOR POWER-UP",
-      subtitle: "Juan Camilo, Ricardo",
+      subtitle: "Full Stack Team",
       icon: Zap,
       metrics: {
         before: { value: 20, label: "hrs en tutoriales/semana" },
@@ -36,7 +36,7 @@ function Slide4() {
     },
     {
       title: "QA SUPERHERO",
-      subtitle: "Cristina",
+      subtitle: "QA Engineers",
       icon: Award,
       metrics: {
         before: { value: 40, label: "% coverage" },
@@ -47,7 +47,7 @@ function Slide4() {
     },
     {
       title: "DISEÑO ACELERADO",
-      subtitle: "UX/UI Team",
+      subtitle: "Frontend Team",
       icon: Users,
       metrics: {
         before: { value: 3, label: "días Figma→React" },
