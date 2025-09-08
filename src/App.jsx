@@ -14,6 +14,7 @@ import MusiExportDocumentV2 from './presentations/musi-kickoffV2/MusiExportDocum
 import MusiPrintViewV2 from './presentations/musi-kickoffV2/MusiPrintViewV2'
 import DynamtekPresentation from './presentations/dynamtek/DynamtekPresentation'
 import ClaudeCodeWBIPresentation from './presentations/claude-code-wbi/ClaudeCodeWBIPresentation'
+import ClaudeCodeWBIEquipoPresentation from './presentations/claude-code-wbi-equipo/ClaudeCodeWBIEquipoPresentation'
 import SharedPresentation from './pages/SharedPresentation'
 import './App.css'
 import './pages/Dashboard.css'
@@ -101,6 +102,12 @@ function App() {
           <Route path="/presentation/claude-code-wbi" element={
             <ProtectedRoute presentationId="claude-code-wbi">
               <ClaudeCodeWBIPresentation />
+            </ProtectedRoute>
+          } />
+          
+          <Route path="/presentation/claude-code-wbi-equipo" element={
+            <ProtectedRoute presentationId="claude-code-wbi-equipo">
+              <ClaudeCodeWBIEquipoPresentation />
             </ProtectedRoute>
           } />
         </Routes>

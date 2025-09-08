@@ -76,18 +76,33 @@ export const presentations = [
   },
   {
     id: 'claude-code-wbi',
-    title: 'Claude Code para WBI',
+    title: 'Claude Code para WBI - Gerencia',
     subtitle: 'Tu Año de Desarrollo Reimaginado',
-    description: 'Presentación interactiva estilo Spotify Wrapped sobre cómo Claude Code multiplica 10x la productividad del equipo de desarrollo',
+    description: 'Presentación interactiva estilo Spotify Wrapped sobre cómo Claude Code multiplica 10x la productividad - Versión para gerencia',
     category: 'WBI',
     thumbnail: '/thumbnails/claude-code.png',
     createdAt: '2025-09-08',
     updatedAt: '2025-09-08',
     slides: 12,
     duration: '30 min',
-    tags: ['IA', 'Productividad', 'Claude Code', 'Desarrollo', 'ROI', 'DevTools'],
+    tags: ['IA', 'Productividad', 'Claude Code', 'Desarrollo', 'ROI', 'DevTools', 'Gerencia'],
     status: 'active',
     path: '/presentation/claude-code-wbi'
+  },
+  {
+    id: 'claude-code-wbi-equipo',
+    title: 'Claude Code para WBI - Equipo',
+    subtitle: 'Tu Nuevo Compañero de Desarrollo',
+    description: 'Presentación interactiva para el equipo de desarrollo sobre la adopción de Claude Code como asistente de IA',
+    category: 'WBI',
+    thumbnail: '/thumbnails/claude-code.png',
+    createdAt: '2025-09-08',
+    updatedAt: '2025-09-08',
+    slides: 12,
+    duration: '30 min',
+    tags: ['IA', 'Productividad', 'Claude Code', 'Desarrollo', 'DevTools', 'Equipo', 'Onboarding'],
+    status: 'active',
+    path: '/presentation/claude-code-wbi-equipo'
   }
 ]
 

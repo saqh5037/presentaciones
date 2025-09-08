@@ -1,0 +1,320 @@
+/* Claude Code WBI Presentation Styles - Dynamtek Style */
+.claude-code-wbi-presentation {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 50%, #16213e 100%) !important;
+  color: #ffffff;
+}
+
+/* Slide Container */
+.claude-slide {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 50px 40px;
+  padding-top: 15px;
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: radial-gradient(ellipse at center, rgba(255, 216, 155, 0.05) 0%, transparent 70%);
+}
+
+/* Custom scrollbar */
+.claude-slide::-webkit-scrollbar {
+  width: 8px;
+}
+
+.claude-slide::-webkit-scrollbar-track {
+  background: rgba(255, 216, 155, 0.1);
+  border-radius: 10px;
+}
+
+.claude-slide::-webkit-scrollbar-thumb {
+  background: rgba(255, 216, 155, 0.3);
+  border-radius: 10px;
+}
+
+.claude-slide::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 216, 155, 0.5);
+}
+
+/* Typography */
+.claude-slide h1 {
+  font-size: 3.2rem;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  background: linear-gradient(135deg, #ffd89b 0%, #ffb347 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.claude-slide h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  color: #ffd89b;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.claude-slide h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  margin-top: 5px;
+  color: #ffb347;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.claude-slide p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.claude-slide .subtitle {
+  font-size: 1.5rem;
+  color: #b0b0b0;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Tool Cards */
+.tool-card {
+  background: linear-gradient(135deg, rgba(255, 216, 155, 0.1) 0%, rgba(255, 179, 71, 0.05) 100%);
+  border: 2px solid rgba(255, 216, 155, 0.3);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  max-width: 400px;
+}
+
+.tool-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #ffd89b;
+  box-shadow: 0 20px 40px rgba(255, 216, 155, 0.3);
+}
+
+.tool-card.featured {
+  background: linear-gradient(135deg, rgba(255, 216, 155, 0.15) 0%, rgba(255, 179, 71, 0.08) 100%);
+  border: 3px solid #ffd89b;
+  transform: scale(1.05);
+}
+
+.tool-card.featured:hover {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow: 0 25px 50px rgba(255, 216, 155, 0.4);
+}
+
+/* Tool Icons and Text */
+.tool-logo {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.tool-name {
+  font-size: 2.2rem;
+  color: #ffd89b;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.tool-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.tool-item-text {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* Recommended Badge */
+.recommended-badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: linear-gradient(135deg, #ffd89b 0%, #ffb347 100%);
+  color: #1a1a2e;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  transform: rotate(10deg);
+  box-shadow: 0 5px 15px rgba(255, 216, 155, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: rotate(10deg) scale(1); }
+  50% { transform: rotate(10deg) scale(1.05); }
+}
+
+/* CTA Button */
+.cta-container {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #ffd89b 0%, #ffb347 100%);
+  color: #1a1a2e;
+  border: none;
+  padding: 20px 50px;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 216, 155, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 216, 155, 0.5);
+}
+
+/* Feature Grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px 0;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, rgba(255, 216, 155, 0.08) 0%, rgba(255, 179, 71, 0.03) 100%);
+  border: 2px solid rgba(255, 216, 155, 0.2);
+  border-radius: 20px;
+  padding: 35px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 216, 155, 0.3);
+  border-color: #ffd89b;
+}
+
+/* Stats Container */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.stat-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffd89b 0%, #ffb347 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.stat-label {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Content wrapper for better scroll control */
+.claude-slide > div:first-child {
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+}
+
+/* Ensure content starts at the top */
+.claude-slide > * {
+  flex-shrink: 0;
+}
+
+/* Particles Animation */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 216, 155, 0.3);
+  border-radius: 50%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .claude-slide {
+    padding: 15px 20px 30px;
+  }
+  
+  .claude-slide h1 {
+    font-size: 3rem;
+  }
+  
+  .claude-slide h2 {
+    font-size: 2.2rem;
+  }
+  
+  .tool-card {
+    max-width: 100%;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
