@@ -15,10 +15,11 @@ import Slide9 from './Slide9'
 import Slide10 from './Slide10'
 import Slide11 from './Slide11'
 import Slide12 from './Slide12'
+import Slide13 from './Slide13'
 
 const slides = [
   Slide1, Slide2, Slide3, Slide4, Slide5, Slide6,
-  Slide7, Slide8, Slide9, Slide10, Slide11, Slide12
+  Slide7, Slide8, Slide9, Slide10, Slide11, Slide12, Slide13
 ]
 
 const slideTitles = [
@@ -31,9 +32,10 @@ const slideTitles = [
   '7. ROI Inmediato',
   '8. Compatible con Tu Stack',
   '9. Tu Código, Tu Control',
-  '10. Roadmap 30 Días',
-  '11. Reviews del Team',
-  '12. Ready to Play?'
+  '10. Dale Supermemoria a Claude Code',
+  '11. Roadmap 30 Días',
+  '12. Reviews del Team',
+  '13. Ready to Play?'
 ]
 
 const slideVariants = {

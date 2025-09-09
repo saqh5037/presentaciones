@@ -1,50 +1,53 @@
 import { motion } from 'framer-motion'
-import { Star, MessageCircle, Quote } from 'lucide-react'
-import { useState } from 'react'
+import { CheckCircle2, Calendar, Rocket, Target, Users, Trophy } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 function Slide11() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const [activeWeek, setActiveWeek] = useState(0)
 
-  const testimonials = [
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveWeek((prev) => (prev < 2 ? prev + 1 : 0))
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const roadmap = [
     {
-      quote: "Como Junior, ahora codifico al nivel de un Semi-Senior",
-      author: "Dev Junior",
-      role: "después de 1 semana",
-      avatar: "👨‍💻",
-      rating: 5,
-      impact: "+300% productividad"
+      week: "SEMANA 1",
+      title: "First Track",
+      icon: Rocket,
+      tasks: [
+        "5 devs prueban (Franco, Diego, Roberto + 2)",
+        "Setup inicial y training (2 hrs)",
+        "Proyecto piloto: Componente FIFCO",
+        "Primeras métricas de productividad"
+      ],
+      status: "start"
     },
     {
-      quote: "Reduje el tiempo de QA en 70% con tests automáticos",
-      author: "QA Engineer",
-      role: "después de 3 días",
-      avatar: "👩‍💻",
-      rating: 5,
-      impact: "95% coverage"
+      week: "SEMANA 2-3",
+      title: "Album Completo",
+      icon: Users,
+      tasks: [
+        "Todo el equipo activado (10 devs)",
+        "Cristina automatiza tests QA",
+        "Métricas en tiempo real",
+        "Ajuste de workflows"
+      ],
+      status: "expand"
     },
     {
-      quote: "Los componentes salen perfectos desde el diseño",
-      author: "UI/UX Team",
-      role: "después de 1 día",
-      avatar: "🎨",
-      rating: 5,
-      impact: "144x más rápido"
-    },
-    {
-      quote: "Es como tener un mentor 24/7 que conoce todas las mejores prácticas",
-      author: "Dev Semi-Senior",
-      role: "después de 2 semanas",
-      avatar: "🚀",
-      rating: 5,
-      impact: "Senior level code"
-    },
-    {
-      quote: "Refactoricé todo nuestro código legacy en 3 días",
-      author: "Tech Lead",
-      role: "proyecto real",
-      avatar: "💡",
-      rating: 5,
-      impact: "3 meses → 3 días"
+      week: "SEMANA 4",
+      title: "Platinum Status",
+      icon: Trophy,
+      tasks: [
+        "10x productividad medida",
+        "ROI documentado",
+        "Decisión de expansión a 15",
+        "Best practices establecidas"
+      ],
+      status: "success"
     }
   ]
 
@@ -107,9 +110,9 @@ function Slide11() {
                 borderRadius: '12px'
               }}
             >
-              <MessageCircle size={22} color="#ffd89b" />
+              <Calendar size={22} color="#ffd89b" />
             </motion.div>
-            <h1 style={{ margin: 0, fontSize: '2.8rem' }}>Reviews del Team</h1>
+            <h1 style={{ margin: 0, fontSize: '2.8rem' }}>Tu Roadmap de 30 Días</h1>
             <motion.div
               animate={{
                 scale: [1, 1.1, 1],
@@ -130,7 +133,7 @@ function Slide11() {
                 borderRadius: '12px'
               }}
             >
-              <Quote size={22} color="#ffd89b" />
+              <Target size={22} color="#ffd89b" />
             </motion.div>
           </div>
         </motion.div>
@@ -146,195 +149,241 @@ function Slide11() {
             textAlign: 'center'
           }}
         >
-          Lo que dicen los Early Adopters
+          Empezamos HOY
         </motion.p>
 
-        {/* Main testimonial display */}
-        <div style={{ marginBottom: '20px' }}>
-          <motion.div
-            key={activeTestimonial}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.15) 0%, rgba(255, 179, 71, 0.08) 100%)',
-              border: '3px solid #ffd89b',
-              borderRadius: '30px',
-              padding: '20px',
-              boxShadow: '0 20px 40px rgba(255, 216, 155, 0.3)'
-            }}>
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center'
-              }}>
-                {/* Avatar */}
+        {/* Timeline */}
+        <div style={{ position: 'relative' }}>
+          {/* Roadmap Cards */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '20px',
+            position: 'relative',
+            marginBottom: '25px'
+          }}>
+            {roadmap.map((phase, index) => {
+              const isActive = index <= activeWeek
+
+              return (
                 <motion.div
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, -5, 0]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity
-                  }}
-                  style={{
-                    fontSize: '3rem',
-                    marginBottom: '15px'
-                  }}
-                >
-                  {testimonials[activeTestimonial].avatar}
-                </motion.div>
-
-                {/* Quote */}
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  style={{
-                    fontSize: '1.4rem',
-                    color: '#e0e0e0',
-                    fontWeight: '600',
-                    marginBottom: '20px',
-                    maxWidth: '900px',
-                    lineHeight: '1.4'
-                  }}
-                >
-                  {testimonials[activeTestimonial].quote}
-                </motion.p>
-
-                {/* Author */}
-                <div style={{ marginBottom: '15px' }}>
-                  <p style={{
-                    fontSize: '1.2rem',
-                    color: '#ffd89b',
-                    fontWeight: '700',
-                    marginBottom: '5px'
-                  }}>
-                    {testimonials[activeTestimonial].author}
-                  </p>
-                  <p style={{
-                    fontSize: '0.95rem',
-                    color: '#ffb347'
-                  }}>
-                    {testimonials[activeTestimonial].role}
-                  </p>
-                </div>
-
-                {/* Rating */}
-                <div style={{
-                  display: 'flex',
-                  gap: '5px',
-                  marginBottom: '15px'
-                }}>
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.3 + i * 0.1 }}
-                    >
-                      <Star size={22} color="#ffd89b" fill="#ffd89b" />
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Impact badge */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.1) 100%)',
-                    border: '2px solid #4ade80',
-                    borderRadius: '50px',
-                    padding: '10px 25px'
-                  }}
+                  transition={{ delay: index * 0.2 }}
+                  style={{ position: 'relative' }}
                 >
-                  <p style={{
-                    fontSize: '1.1rem',
-                    color: '#4ade80',
-                    fontWeight: '700',
-                    margin: 0
-                  }}>
-                    {testimonials[activeTestimonial].impact}
-                  </p>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
 
-        {/* Testimonial selector */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '15px',
-          marginBottom: '20px'
-        }}>
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveTestimonial(index)}
+                  <motion.div
+                    animate={{
+                      scale: index === activeWeek ? 1.02 : 1,
+                      y: index === activeWeek ? -5 : 0
+                    }}
+                    style={{
+                      background: index === activeWeek 
+                        ? 'linear-gradient(135deg, rgba(255, 216, 155, 0.15) 0%, rgba(255, 179, 71, 0.08) 100%)'
+                        : 'linear-gradient(135deg, rgba(255, 216, 155, 0.08) 0%, rgba(255, 179, 71, 0.03) 100%)',
+                      border: index === activeWeek ? '3px solid #ffd89b' : '2px solid rgba(255, 216, 155, 0.3)',
+                      borderRadius: '20px',
+                      padding: '20px',
+                      height: '100%',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    {/* Week header */}
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'flex-start',
+                      marginBottom: '15px'
+                    }}>
+                      <div>
+                        <p style={{
+                          fontSize: '0.95rem',
+                          color: '#b0b0b0',
+                          marginBottom: '5px'
+                        }}>
+                          {phase.week}
+                        </p>
+                        <h3 style={{
+                          fontSize: '1.4rem',
+                          color: '#ffd89b',
+                          fontWeight: '700',
+                          margin: 0
+                        }}>
+                          {phase.title}
+                        </h3>
+                      </div>
+                      <motion.div
+                        animate={index === activeWeek ? {
+                          rotate: [0, 10, -10, 0],
+                          scale: [1, 1.2, 1]
+                        } : {}}
+                        transition={{
+                          duration: 2,
+                          repeat: index === activeWeek ? Infinity : 0
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: '40px',
+                          height: '40px',
+                          background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.2) 0%, rgba(255, 179, 71, 0.1) 100%)',
+                          border: '2px solid #ffd89b',
+                          borderRadius: '12px'
+                        }}
+                      >
+                        <phase.icon size={22} color="#ffd89b" />
+                      </motion.div>
+                    </div>
+
+                    {/* Tasks */}
+                    <div style={{ marginBottom: '15px' }}>
+                      {phase.tasks.map((task, taskIndex) => (
+                        <motion.div
+                          key={taskIndex}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ 
+                            opacity: 1,
+                            x: 0
+                          }}
+                          transition={{ delay: index * 0.2 + taskIndex * 0.1 }}
+                          style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '12px',
+                            marginBottom: '10px'
+                          }}
+                        >
+                          <CheckCircle2 
+                            size={18} 
+                            color={isActive ? "#4ade80" : "#b0b0b0"}
+                            style={{ marginTop: '2px', flexShrink: 0 }}
+                          />
+                          <p style={{
+                            fontSize: '0.9rem',
+                            color: '#e0e0e0',
+                            margin: 0
+                          }}>
+                            {task}
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* Status badge */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                    >
+                      <div style={{
+                        display: 'inline-block',
+                        background: isActive 
+                          ? 'linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.1) 100%)'
+                          : 'rgba(176, 176, 176, 0.1)',
+                        border: isActive ? '2px solid #4ade80' : '2px solid rgba(176, 176, 176, 0.3)',
+                        borderRadius: '50px',
+                        padding: '6px 15px'
+                      }}>
+                        <p style={{
+                          fontSize: '0.9rem',
+                          color: isActive ? '#4ade80' : '#b0b0b0',
+                          fontWeight: '700',
+                          margin: 0
+                        }}>
+                          {isActive ? "EN PROGRESO" : "PENDIENTE"}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* Progress Line */}
+          <div style={{
+            height: '6px',
+            background: 'rgba(255, 216, 155, 0.1)',
+            borderRadius: '10px',
+            overflow: 'hidden',
+            marginTop: '20px'
+          }}>
+            <motion.div
+              initial={{ width: "0%" }}
+              animate={{ width: `${(activeWeek + 1) * 33.33}%` }}
+              transition={{ duration: 1 }}
               style={{
-                height: '12px',
-                borderRadius: '10px',
-                transition: 'all 0.3s ease',
-                border: 'none',
-                cursor: 'pointer',
-                width: index === activeTestimonial ? '50px' : '12px',
-                background: index === activeTestimonial
-                  ? 'linear-gradient(90deg, #ffd89b 0%, #ffb347 100%)'
-                  : 'rgba(255, 216, 155, 0.3)'
+                height: '100%',
+                background: 'linear-gradient(90deg, #ffd89b 0%, #ffb347 100%)',
+                borderRadius: '10px'
               }}
             />
-          ))}
+          </div>
         </div>
 
-        {/* Success metric */}
+        {/* Bonus Note */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1 }}
-          style={{ textAlign: 'center' }}
+          transition={{ delay: 1.5 }}
+          style={{ textAlign: 'center', marginTop: '25px' }}
         >
           <div style={{
             display: 'inline-block',
             background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.15) 0%, rgba(255, 179, 71, 0.08) 100%)',
             border: '3px solid #ffd89b',
             borderRadius: '30px',
-            padding: '20px 40px',
+            padding: '15px 30px',
             boxShadow: '0 20px 40px rgba(255, 216, 155, 0.3)'
           }}>
-            <motion.div
+            <motion.p
               animate={{
-                scale: [1, 1.03, 1]
+                scale: [1, 1.02, 1]
               }}
               transition={{
-                duration: 3,
+                duration: 2,
                 repeat: Infinity
               }}
+              style={{
+                fontSize: '1.3rem',
+                fontWeight: '700',
+                color: '#ffd89b',
+                marginBottom: '10px'
+              }}
             >
-              <p style={{
-                fontSize: '2.5rem',
-                fontWeight: '800',
-                background: 'linear-gradient(135deg, #ffd89b 0%, #ffb347 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                marginBottom: '15px'
-              }}>
-                95% de satisfacción
-              </p>
-              <p style={{
-                fontSize: '1.1rem',
-                color: '#e0e0e0'
-              }}>
-                en equipos que adoptan Claude Code
-              </p>
-            </motion.div>
+              <motion.span
+                animate={{
+                  rotate: [0, 10, -10, 0],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity
+                }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '30px',
+                  height: '30px',
+                  background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.2) 0%, rgba(255, 179, 71, 0.1) 100%)',
+                  border: '2px solid #ffd89b',
+                  borderRadius: '50%',
+                  marginRight: '10px'
+                }}
+              >
+                <Target size={18} color="#ffd89b" />
+              </motion.span>
+              Decisión Estratégica de WBI
+            </motion.p>
+            <p style={{
+              fontSize: '1rem',
+              color: '#e0e0e0'
+            }}>
+              Adoptando la tecnología que multiplicará nuestra productividad
+            </p>
           </div>
         </motion.div>
       </motion.div>

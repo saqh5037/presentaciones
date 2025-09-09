@@ -1,54 +1,77 @@
 import { motion } from 'framer-motion'
-import { CheckCircle2, Calendar, Rocket, Target, Users, Trophy } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { Brain, FileText, Code, ListTodo, Sparkles, ArrowRight, CheckCircle, AlertCircle } from 'lucide-react'
 
 function Slide10() {
-  const [activeWeek, setActiveWeek] = useState(0)
+  const [activeComponent, setActiveComponent] = useState(null)
+  const [showProblem, setShowProblem] = useState(true)
+  const [showSolution, setShowSolution] = useState(false)
+  const [showWorkflow, setShowWorkflow] = useState(false)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveWeek((prev) => (prev < 2 ? prev + 1 : 0))
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  const roadmap = [
+  const components = [
     {
-      week: "SEMANA 1",
-      title: "Setup Inicial",
-      icon: Rocket,
-      tasks: [
-        "Instalación de la extensión VS Code",
-        "Configuración de entorno y preferencias",
-        "Primeras pruebas con código real",
-        "Familiarización con comandos básicos"
-      ],
-      status: "start"
+      id: 'prd',
+      name: 'PRD',
+      fullName: 'Project Requirements Document',
+      icon: FileText,
+      color: '#9333ea',
+      description: 'La visión y requisitos del proyecto',
+      details: [
+        'Hoja de ruta completa',
+        'Objetivos y especificaciones',
+        'Fuente de verdad principal',
+        'Base para otros archivos'
+      ]
     },
     {
-      week: "SEMANA 2-3",
-      title: "Integración Activa",
-      icon: Users,
-      tasks: [
-        "Uso en proyectos actuales",
-        "Generación automática de tests",
-        "Code reviews asistidos por IA",
-        "Ajuste de workflows"
-      ],
-      status: "expand"
+      id: 'claude',
+      name: 'claude.md',
+      fullName: 'Manual de Operaciones IA',
+      icon: Brain,
+      color: '#ffd89b',
+      description: 'Las reglas de trabajo para Claude',
+      details: [
+        'Lee planning.md al inicio',
+        'Verifica tasks.md siempre',
+        'Marca tareas completadas',
+        'Añade tareas nuevas'
+      ]
     },
     {
-      week: "SEMANA 4",
-      title: "Flujo Optimizado",
-      icon: Trophy,
-      tasks: [
-        "Flujo de trabajo completamente integrado",
-        "Best practices establecidas",
-        "Documentación automática activa",
-        "Equipo trabajando a máxima eficiencia"
-      ],
-      status: "success"
+      id: 'planning',
+      name: 'planning.md',
+      fullName: 'Plano Arquitectónico',
+      icon: Code,
+      color: '#60a5fa',
+      description: 'Arquitectura y stack tecnológico',
+      details: [
+        'Arquitectura del software',
+        'Stack tecnológico (React, Node)',
+        'Herramientas y librerías',
+        'Decisiones técnicas'
+      ]
+    },
+    {
+      id: 'tasks',
+      name: 'tasks.md',
+      fullName: 'Mapa de Ruta Dinámico',
+      icon: ListTodo,
+      color: '#4ade80',
+      description: 'Estado y progreso del proyecto',
+      details: [
+        'Lista granular de tareas',
+        'Seguimiento de progreso',
+        'Fechas de completado',
+        'Tareas descubiertas'
+      ]
     }
+  ]
+
+  const problems = [
+    { text: 'Recreación de archivos existentes', icon: '🔄' },
+    { text: 'Duplicación de tareas', icon: '👥' },
+    { text: 'Olvido de tareas importantes', icon: '❌' },
+    { text: 'Pérdida de contexto entre sesiones', icon: '🧠' }
   ]
 
   return (
@@ -92,8 +115,8 @@ function Slide10() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '20px' }}>
             <motion.div
               animate={{
-                scale: [1, 1.1, 1],
-                rotate: [0, 10, -10, 0]
+                rotate: [0, 10, -10, 0],
+                scale: [1, 1.1, 1]
               }}
               transition={{
                 duration: 2,
@@ -110,31 +133,9 @@ function Slide10() {
                 borderRadius: '12px'
               }}
             >
-              <Calendar size={22} color="#ffd89b" />
+              <Brain size={22} color="#ffd89b" />
             </motion.div>
-            <h1 style={{ margin: 0, fontSize: '2.8rem' }}>Plan de Adopción del Equipo</h1>
-            <motion.div
-              animate={{
-                scale: [1, 1.1, 1],
-                rotate: [0, -10, 10, 0]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity
-              }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '40px',
-                height: '40px',
-                background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.2) 0%, rgba(255, 179, 71, 0.1) 100%)',
-                border: '2px solid #ffd89b',
-                borderRadius: '12px'
-              }}
-            >
-              <Target size={22} color="#ffd89b" />
-            </motion.div>
+            <h1 style={{ margin: 0, fontSize: '2.8rem' }}>Dale Supermemoria a Claude Code</h1>
           </div>
         </motion.div>
 
@@ -145,200 +146,283 @@ function Slide10() {
           style={{ 
             fontSize: '1.5rem', 
             color: '#ffb347',
-            marginBottom: '25px',
+            marginBottom: '20px',
             textAlign: 'center'
           }}
         >
-          Integración progresiva con tu flujo actual
+          Marco Metodológico de 4 Componentes
         </motion.p>
 
-        {/* Timeline */}
-        <div style={{ position: 'relative' }}>
-          {/* Roadmap Cards */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '20px',
-            position: 'relative',
-            marginBottom: '25px'
-          }}>
-            {roadmap.map((phase, index) => {
-              const isActive = index <= activeWeek
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  style={{ position: 'relative' }}
-                >
-
+        {/* Problem Section */}
+        {showProblem && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{ marginBottom: '20px' }}
+          >
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.08) 100%)',
+              border: '3px solid #ef4444',
+              borderRadius: '20px',
+              padding: '20px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+                <AlertCircle size={24} color="#ef4444" />
+                <h3 style={{ fontSize: '1.4rem', color: '#ef4444', margin: 0 }}>
+                  El Problema: Claude olvida todo entre sesiones
+                </h3>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
+                {problems.map((problem, index) => (
                   <motion.div
-                    animate={{
-                      scale: index === activeWeek ? 1.02 : 1,
-                      y: index === activeWeek ? -5 : 0
-                    }}
+                    key={index}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.1 }}
                     style={{
-                      background: index === activeWeek 
-                        ? 'linear-gradient(135deg, rgba(255, 216, 155, 0.15) 0%, rgba(255, 179, 71, 0.08) 100%)'
-                        : 'linear-gradient(135deg, rgba(255, 216, 155, 0.08) 0%, rgba(255, 179, 71, 0.03) 100%)',
-                      border: index === activeWeek ? '3px solid #ffd89b' : '2px solid rgba(255, 216, 155, 0.3)',
-                      borderRadius: '20px',
-                      padding: '20px',
-                      height: '100%',
-                      transition: 'all 0.3s ease'
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      padding: '10px',
+                      background: 'rgba(0, 0, 0, 0.2)',
+                      borderRadius: '10px'
                     }}
                   >
-                    {/* Week header */}
-                    <div style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'flex-start',
-                      marginBottom: '15px'
-                    }}>
-                      <div>
-                        <p style={{
-                          fontSize: '0.95rem',
-                          color: '#b0b0b0',
-                          marginBottom: '5px'
-                        }}>
-                          {phase.week}
-                        </p>
-                        <h3 style={{
-                          fontSize: '1.4rem',
-                          color: '#ffd89b',
-                          fontWeight: '700',
-                          margin: 0
-                        }}>
-                          {phase.title}
-                        </h3>
-                      </div>
-                      <motion.div
-                        animate={index === activeWeek ? {
-                          rotate: [0, 10, -10, 0],
-                          scale: [1, 1.2, 1]
-                        } : {}}
-                        transition={{
-                          duration: 2,
-                          repeat: index === activeWeek ? Infinity : 0
-                        }}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          width: '40px',
-                          height: '40px',
-                          background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.2) 0%, rgba(255, 179, 71, 0.1) 100%)',
-                          border: '2px solid #ffd89b',
-                          borderRadius: '12px'
-                        }}
-                      >
-                        <phase.icon size={22} color="#ffd89b" />
-                      </motion.div>
-                    </div>
-
-                    {/* Tasks */}
-                    <div style={{ marginBottom: '15px' }}>
-                      {phase.tasks.map((task, taskIndex) => (
-                        <motion.div
-                          key={taskIndex}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ 
-                            opacity: 1,
-                            x: 0
-                          }}
-                          transition={{ delay: index * 0.2 + taskIndex * 0.1 }}
-                          style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: '12px',
-                            marginBottom: '10px'
-                          }}
-                        >
-                          <CheckCircle2 
-                            size={18} 
-                            color={isActive ? "#4ade80" : "#b0b0b0"}
-                            style={{ marginTop: '2px', flexShrink: 0 }}
-                          />
-                          <p style={{
-                            fontSize: '0.9rem',
-                            color: '#e0e0e0',
-                            margin: 0
-                          }}>
-                            {task}
-                          </p>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    {/* Status badge */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                    >
-                      <div style={{
-                        display: 'inline-block',
-                        background: isActive 
-                          ? 'linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.1) 100%)'
-                          : 'rgba(176, 176, 176, 0.1)',
-                        border: isActive ? '2px solid #4ade80' : '2px solid rgba(176, 176, 176, 0.3)',
-                        borderRadius: '50px',
-                        padding: '6px 15px'
-                      }}>
-                        <p style={{
-                          fontSize: '0.9rem',
-                          color: isActive ? '#4ade80' : '#b0b0b0',
-                          fontWeight: '700',
-                          margin: 0
-                        }}>
-                          {isActive ? "EN PROGRESO" : "PENDIENTE"}
-                        </p>
-                      </div>
-                    </motion.div>
+                    <span style={{ fontSize: '1.5rem' }}>{problem.icon}</span>
+                    <span style={{ color: '#e0e0e0', fontSize: '0.95rem' }}>{problem.text}</span>
                   </motion.div>
+                ))}
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  setShowProblem(false)
+                  setShowSolution(true)
+                }}
+                style={{
+                  marginTop: '15px',
+                  background: 'linear-gradient(135deg, #ffd89b 0%, #ffb347 100%)',
+                  border: 'none',
+                  borderRadius: '25px',
+                  padding: '10px 25px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  color: '#1a1a2e'
+                }}
+              >
+                Ver la Solución <ArrowRight size={18} />
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Solution Section - 4 Components */}
+        {showSolution && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '15px',
+              marginBottom: '20px'
+            }}>
+              {components.map((component, index) => (
+                <motion.div
+                  key={component.id}
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.2 }}
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setActiveComponent(component.id)}
+                  style={{
+                    background: activeComponent === component.id
+                      ? `linear-gradient(135deg, ${component.color}30 0%, ${component.color}15 100%)`
+                      : 'linear-gradient(135deg, rgba(255, 216, 155, 0.08) 0%, rgba(255, 179, 71, 0.03) 100%)',
+                    border: `2px solid ${activeComponent === component.id ? component.color : 'rgba(255, 216, 155, 0.3)'}`,
+                    borderRadius: '15px',
+                    padding: '15px',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center'
+                  }}>
+                    <motion.div
+                      animate={activeComponent === component.id ? {
+                        rotate: [0, 360],
+                        scale: [1, 1.2, 1]
+                      } : {}}
+                      transition={{ duration: 1 }}
+                      style={{
+                        width: '50px',
+                        height: '50px',
+                        background: `linear-gradient(135deg, ${component.color}20 0%, ${component.color}10 100%)`,
+                        border: `2px solid ${component.color}`,
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: '10px'
+                      }}
+                    >
+                      <component.icon size={24} color={component.color} />
+                    </motion.div>
+                    <h4 style={{
+                      fontSize: '1.1rem',
+                      color: component.color,
+                      marginBottom: '5px',
+                      fontWeight: '700'
+                    }}>
+                      {component.name}
+                    </h4>
+                    <p style={{
+                      fontSize: '0.75rem',
+                      color: '#b0b0b0',
+                      marginBottom: '8px'
+                    }}>
+                      {component.fullName}
+                    </p>
+                    <p style={{
+                      fontSize: '0.85rem',
+                      color: '#e0e0e0'
+                    }}>
+                      {component.description}
+                    </p>
+                  </div>
                 </motion.div>
-              )
-            })}
-          </div>
+              ))}
+            </div>
 
-          {/* Progress Line */}
-          <div style={{
-            height: '6px',
-            background: 'rgba(255, 216, 155, 0.1)',
-            borderRadius: '10px',
-            overflow: 'hidden',
-            marginTop: '20px'
-          }}>
+            {/* Component Details */}
+            {activeComponent && (
+              <motion.div
+                key={activeComponent}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.1) 0%, rgba(255, 179, 71, 0.05) 100%)',
+                  border: '2px solid rgba(255, 216, 155, 0.3)',
+                  borderRadius: '15px',
+                  padding: '15px',
+                  marginBottom: '20px'
+                }}
+              >
+                <h3 style={{ color: '#ffd89b', marginBottom: '10px', fontSize: '1.2rem' }}>
+                  {components.find(c => c.id === activeComponent)?.name} - Funciones Clave:
+                </h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
+                  {components.find(c => c.id === activeComponent)?.details.map((detail, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: index * 0.1 }}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px'
+                      }}
+                    >
+                      <CheckCircle size={16} color="#4ade80" />
+                      <span style={{ color: '#e0e0e0', fontSize: '0.9rem' }}>{detail}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {!showWorkflow && (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowWorkflow(true)}
+                style={{
+                  background: 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)',
+                  border: 'none',
+                  borderRadius: '25px',
+                  padding: '10px 25px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  color: '#1a1a2e',
+                  margin: '0 auto'
+                }}
+              >
+                Ver Workflow <ArrowRight size={18} />
+              </motion.button>
+            )}
+          </motion.div>
+        )}
+
+        {/* Workflow Section */}
+        {showWorkflow && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              background: 'linear-gradient(135deg, rgba(74, 222, 128, 0.15) 0%, rgba(34, 197, 94, 0.08) 100%)',
+              border: '3px solid #4ade80',
+              borderRadius: '20px',
+              padding: '20px',
+              marginTop: '20px'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+              <Sparkles size={24} color="#4ade80" />
+              <h3 style={{ fontSize: '1.4rem', color: '#4ade80', margin: 0 }}>
+                Workflow en Acción
+              </h3>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '15px' }}>
+              <div>
+                <h4 style={{ color: '#ffd89b', marginBottom: '10px' }}>🚀 Inicio del Proyecto:</h4>
+                <div style={{
+                  background: 'rgba(0, 0, 0, 0.3)',
+                  borderRadius: '10px',
+                  padding: '10px',
+                  fontFamily: 'monospace',
+                  fontSize: '0.85rem',
+                  color: '#4ade80'
+                }}>
+                  "Por favor, lee planning.md, claude.md y tasks.md para entender el proyecto. Luego, completa la primera tarea."
+                </div>
+              </div>
+              
+              <div>
+                <h4 style={{ color: '#ffd89b', marginBottom: '10px' }}>🔄 Continuar Trabajo:</h4>
+                <div style={{
+                  background: 'rgba(0, 0, 0, 0.3)',
+                  borderRadius: '10px',
+                  padding: '10px',
+                  fontFamily: 'monospace',
+                  fontSize: '0.85rem',
+                  color: '#4ade80'
+                }}>
+                  "Verifica claude.md, planning.md y tasks.md. Luego, continúa desde donde lo dejamos."
+                </div>
+              </div>
+            </div>
+
             <motion.div
-              initial={{ width: "0%" }}
-              animate={{ width: `${(activeWeek + 1) * 33.33}%` }}
-              transition={{ duration: 1 }}
-              style={{
-                height: '100%',
-                background: 'linear-gradient(90deg, #ffd89b 0%, #ffb347 100%)',
-                borderRadius: '10px'
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Bonus Note */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.5 }}
-          style={{ textAlign: 'center', marginTop: '25px' }}
-        >
-          <div style={{
-            display: 'inline-block',
-            background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.15) 0%, rgba(255, 179, 71, 0.08) 100%)',
-            border: '3px solid #ffd89b',
-            borderRadius: '30px',
-            padding: '15px 30px',
-            boxShadow: '0 20px 40px rgba(255, 216, 155, 0.3)'
-          }}>
-            <motion.p
               animate={{
                 scale: [1, 1.02, 1]
               }}
@@ -347,48 +431,34 @@ function Slide10() {
                 repeat: Infinity
               }}
               style={{
-                fontSize: '1.3rem',
-                fontWeight: '700',
-                color: '#ffd89b',
-                marginBottom: '10px'
+                marginTop: '15px',
+                background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.15) 0%, rgba(255, 179, 71, 0.08) 100%)',
+                border: '2px solid #ffd89b',
+                borderRadius: '15px',
+                padding: '15px',
+                textAlign: 'center'
               }}
             >
-              <motion.span
-                animate={{
-                  rotate: [0, 10, -10, 0],
-                  scale: [1, 1.1, 1]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity
-                }}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '30px',
-                  height: '30px',
-                  background: 'linear-gradient(135deg, rgba(255, 216, 155, 0.2) 0%, rgba(255, 179, 71, 0.1) 100%)',
-                  border: '2px solid #ffd89b',
-                  borderRadius: '50%',
-                  marginRight: '10px'
-                }}
-              >
-                <Target size={18} color="#ffd89b" />
-              </motion.span>
-              Tu nueva herramienta de desarrollo
-            </motion.p>
-            <p style={{
-              fontSize: '1rem',
-              color: '#e0e0e0'
-            }}>
-              Disponible para todo el equipo desde hoy
-            </p>
-          </div>
-        </motion.div>
+              <p style={{
+                fontSize: '1.2rem',
+                color: '#ffd89b',
+                fontWeight: '700',
+                marginBottom: '5px'
+              }}>
+                💡 Pro Tip: Guarda resúmenes de sesión
+              </p>
+              <p style={{
+                fontSize: '0.9rem',
+                color: '#e0e0e0'
+              }}>
+                Al final de cada sesión, pide a Claude que añada un resumen a claude.md para preservar el contexto
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
       </motion.div>
     </div>
   )
 }
 
-export default Slide10
+export default Slide10Memory
