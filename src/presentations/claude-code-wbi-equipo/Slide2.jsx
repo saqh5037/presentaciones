@@ -290,7 +290,7 @@ function Slide2() {
                 margin: '5px 0'
               }}
             >
-              40 hrs/semana
+              20 hrs/semana
             </motion.p>
             <p style={{ 
               fontSize: '1rem',

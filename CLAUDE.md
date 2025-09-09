@@ -46,8 +46,10 @@ Interactive React presentation system with authentication, animated slides, expo
   - **labsis-expert**: AI lab solution (15 slides with 3a/3b/3c variants)
   - **musi-kickoff**: FIFCO retail project (10 slides)
   - **musi-kickoffV2**: Enhanced version with updated features
-  - **dynamtek-centro-mando**: Command center dashboard (11 slides)
+  - **dynamtek**: Command center dashboard (11 slides)
   - **etiquetas-bernardo**: School labels (58 printable items)
+  - **claude-code-wbi**: Claude Code WBI presentation
+  - **claude-code-wbi-equipo**: Team version of Claude Code WBI
 
 #### Token Sharing System
 - 30-day expiration tokens (12-character alphanumeric)
@@ -98,9 +100,3 @@ Three export modes implemented:
 - Unused vars allowed if uppercase or underscore-prefixed
 - ECMAScript 2020 with JSX support
 - Global ignore: dist directory
-
-## important-instruction-reminders
-Do what has been asked; nothing more, nothing less.
-NEVER create files unless they're absolutely necessary for achieving your goal.
-ALWAYS prefer editing an existing file to creating a new one.
-NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.

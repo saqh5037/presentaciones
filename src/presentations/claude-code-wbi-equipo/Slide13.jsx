@@ -387,28 +387,36 @@ function Slide13() {
                 overflow: 'hidden'
               }}
             >
-              {/* Lightning effects during charge */}
-              {explosionPhase >= 2 && explosionPhase < 4 && (
+              {/* Lightning effects during charge - Perfectly Centered */}
+              {explosionPhase >= 1 && explosionPhase < 4 && (
                 <>
                   {[...Array(8)].map((_, i) => (
                     <motion.div
                       key={`lightning-${i}`}
-                      initial={{ opacity: 0 }}
+                      initial={{ 
+                        opacity: 0,
+                        x: 0,
+                        y: 0
+                      }}
                       animate={{ 
-                        opacity: [0, 1, 0],
-                        scale: [0.5, 1.5, 0.5]
+                        opacity: explosionPhase === 3 ? [0, 1, 0] : [0, 0.5, 0],
+                        scale: explosionPhase === 3 ? [0.5, 1.5, 0.5] : [0.3, 0.8, 0.3],
+                        x: 0,
+                        y: 0
                       }}
                       transition={{
-                        duration: 0.3,
+                        duration: explosionPhase === 3 ? 0.3 : 0.5,
                         repeat: Infinity,
                         delay: i * 0.1
                       }}
                       style={{
-                        position: 'absolute',
+                        position: 'fixed',
+                        top: '50%',
+                        left: '50%',
                         width: '2px',
                         height: '100vh',
                         background: `linear-gradient(to bottom, transparent, ${magicSkills[i].color}, transparent)`,
-                        transform: `rotate(${i * 45}deg)`,
+                        transform: `translate(-50%, -50%) rotate(${i * 45}deg)`,
                         transformOrigin: 'center'
                       }}
                     />
@@ -416,133 +424,134 @@ function Slide13() {
                 </>
               )}
 
-              {/* Removed flex container that was causing offset */}
-                {/* Central Energy Core */}
-                <motion.div
-                  onClick={(e) => e.stopPropagation()}
-                  style={{
-                    position: 'fixed',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    width: explosionPhase >= 4 ? '3000px' : '150px',
-                    height: explosionPhase >= 4 ? '3000px' : '150px',
-                    transition: 'all 0.5s ease'
-                  }}
-                >
-                  {/* Energy Core */}
-                  {explosionPhase < 4 && (
-                    <motion.div
-                      animate={{
-                        scale: explosionPhase === 3 ? [1, 1.5, 1] : 1,
-                        rotate: [0, 360]
-                      }}
-                      transition={{
-                        scale: {
-                          duration: 0.5,
-                          repeat: Infinity
-                        },
-                        rotate: {
-                          duration: explosionPhase === 3 ? 0.5 : 2,
-                          repeat: Infinity,
-                          ease: 'linear'
-                        }
-                      }}
-                      style={{
-                        width: '150px',
-                        height: '150px',
-                        position: 'relative',
-                        background: explosionPhase >= 2 
-                          ? 'radial-gradient(circle, #ffd89b, #ffb347, #ff6b6b)' 
-                          : 'radial-gradient(circle, #ffd89b, #ffb347)',
-                        borderRadius: '50%',
-                        boxShadow: explosionPhase >= 2
-                          ? '0 0 100px 50px rgba(255, 216, 155, 0.8)'
-                          : '0 0 50px 20px rgba(255, 216, 155, 0.5)',
-                        filter: explosionPhase === 3 ? 'brightness(2)' : 'brightness(1)'
-                      }}
-                    >
-                      <Hexagon 
-                        size={60} 
-                        color="#1a1a2e" 
-                        style={{
-                          position: 'absolute',
-                          top: '50%',
-                          left: '50%',
-                          transform: 'translate(-50%, -50%)'
-                        }}
-                      />
-                    </motion.div>
-                  )}
-
-                  {/* Energy Rings */}
-                  {explosionPhase >= 2 && explosionPhase < 4 && energyRings.map((ring, i) => (
-                    <motion.div
-                      key={`ring-${i}`}
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{
-                        scale: [1, 2 + i * 0.5],
-                        opacity: [0.8, 0]
-                      }}
-                      transition={{
-                        duration: 1.5,
+              {/* Central Energy Core - Perfectly Centered Container */}
+                {/* Energy Core - Visible from the start */}
+                {explosionPhase >= 1 && explosionPhase < 4 && (
+                  <motion.div
+                    onClick={(e) => e.stopPropagation()}
+                    initial={{ 
+                      scale: 0.8,
+                      opacity: 0 
+                    }}
+                    animate={{
+                      scale: explosionPhase === 3 ? [1, 1.3, 1] : 1,
+                      rotate: [0, 360],
+                      opacity: 1,
+                      x: 0,
+                      y: 0
+                    }}
+                    transition={{
+                      scale: {
+                        duration: explosionPhase === 3 ? 0.5 : 0.8,
+                        repeat: explosionPhase === 3 ? Infinity : 0
+                      },
+                      rotate: {
+                        duration: explosionPhase === 3 ? 0.5 : 2,
                         repeat: Infinity,
-                        delay: i * 0.2
-                      }}
+                        ease: 'linear'
+                      },
+                      opacity: {
+                        duration: 0.5
+                      },
+                      x: { duration: 0 },
+                      y: { duration: 0 }
+                    }}
+                    style={{
+                      position: 'fixed',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      width: '150px',
+                      height: '150px',
+                      background: explosionPhase >= 2 
+                        ? 'radial-gradient(circle, #ffd89b, #ffb347, #ff6b6b)' 
+                        : 'radial-gradient(circle, #ffd89b, #ffb347)',
+                      borderRadius: '50%',
+                      boxShadow: explosionPhase >= 2
+                        ? '0 0 100px 50px rgba(255, 216, 155, 0.8)'
+                        : '0 0 50px 20px rgba(255, 216, 155, 0.5)',
+                      filter: explosionPhase === 3 ? 'brightness(2)' : 'brightness(1)',
+                      zIndex: 2,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <Hexagon 
+                      size={60} 
+                      color="#1a1a2e" 
+                    />
+                  </motion.div>
+                )}
+
+                {/* Energy Rings - Perfectly Centered */}
+                {explosionPhase >= 1 && explosionPhase < 4 && energyRings.map((ring, i) => (
+                  <motion.div
+                    key={`ring-${i}`}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{
+                      scale: [1, 2 + i * 0.5],
+                      opacity: [0.8, 0]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      delay: i * 0.2
+                    }}
+                    style={{
+                      position: 'fixed',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      width: '150px',
+                      height: '150px',
+                      border: `3px solid ${magicSkills[i * 3].color}`,
+                      borderRadius: '50%',
+                      pointerEvents: 'none',
+                      zIndex: 1
+                    }}
+                  />
+                ))}
+
+                {/* EXPLOSION SHOCKWAVE */}
+                {explosionPhase >= 4 && (
+                  <>
+                    <motion.div
+                      initial={{ scale: 0, opacity: 1 }}
+                      animate={{ scale: 20, opacity: 0 }}
+                      transition={{ duration: 1.5, ease: 'easeOut' }}
                       style={{
-                        position: 'absolute',
+                        position: 'fixed',
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        width: '150px',
-                        height: '150px',
-                        border: `3px solid ${magicSkills[i * 3].color}`,
-                        borderRadius: '50%',
-                        pointerEvents: 'none'
+                        width: '200px',
+                        height: '200px',
+                        background: 'radial-gradient(circle, rgba(255, 216, 155, 0.8), transparent)',
+                        borderRadius: '50%'
                       }}
                     />
-                  ))}
+                    <motion.div
+                      initial={{ scale: 0, opacity: 1 }}
+                      animate={{ scale: 15, opacity: 0 }}
+                      transition={{ duration: 1, delay: 0.1, ease: 'easeOut' }}
+                      style={{
+                        position: 'fixed',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '200px',
+                        height: '200px',
+                        border: '5px solid rgba(255, 179, 71, 0.8)',
+                        borderRadius: '50%'
+                      }}
+                    />
+                  </>
+                )}
 
-                  {/* EXPLOSION SHOCKWAVE */}
-                  {explosionPhase >= 4 && (
-                    <>
-                      <motion.div
-                        initial={{ scale: 0, opacity: 1 }}
-                        animate={{ scale: 20, opacity: 0 }}
-                        transition={{ duration: 1.5, ease: 'easeOut' }}
-                        style={{
-                          position: 'absolute',
-                          top: '50%',
-                          left: '50%',
-                          transform: 'translate(-50%, -50%)',
-                          width: '200px',
-                          height: '200px',
-                          background: 'radial-gradient(circle, rgba(255, 216, 155, 0.8), transparent)',
-                          borderRadius: '50%'
-                        }}
-                      />
-                      <motion.div
-                        initial={{ scale: 0, opacity: 1 }}
-                        animate={{ scale: 15, opacity: 0 }}
-                        transition={{ duration: 1, delay: 0.1, ease: 'easeOut' }}
-                        style={{
-                          position: 'absolute',
-                          top: '50%',
-                          left: '50%',
-                          transform: 'translate(-50%, -50%)',
-                          width: '200px',
-                          height: '200px',
-                          border: '5px solid rgba(255, 179, 71, 0.8)',
-                          borderRadius: '50%'
-                        }}
-                      />
-                    </>
-                  )}
-                </motion.div>
-
-                {/* Title that appears */}
+                {/* Title that appears - Perfectly Centered */}
                 {explosionPhase >= 1 && explosionPhase < 4 && (
-                  <motion.h2
+                  <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ 
                       opacity: 1, 
@@ -558,8 +567,15 @@ function Slide13() {
                     style={{
                       position: 'fixed',
                       top: '15%',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
+                      left: '0',
+                      right: '0',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      zIndex: 10
+                    }}
+                  >
+                    <h2 style={{
                       fontSize: '3rem',
                       fontWeight: '900',
                       background: 'linear-gradient(135deg, #ffd89b 0%, #ffb347 100%)',
@@ -569,13 +585,14 @@ function Slide13() {
                       textAlign: 'center',
                       textTransform: 'uppercase',
                       letterSpacing: '3px',
-                      zIndex: 10
-                    }}
-                  >
-                    {explosionPhase === 1 && "Preparando..."}
-                    {explosionPhase === 2 && "Cargando Poder..."}
-                    {explosionPhase === 3 && "¡MÁXIMO PODER!"}
-                  </motion.h2>
+                      margin: 0,
+                      padding: 0
+                    }}>
+                      {explosionPhase === 1 && "Preparando..."}
+                      {explosionPhase === 2 && "Cargando Poder..."}
+                      {explosionPhase === 3 && "¡MÁXIMO PODER!"}
+                    </h2>
+                  </motion.div>
                 )}
 
                 {/* Floating Skills after explosion */}
@@ -626,23 +643,28 @@ function Slide13() {
                           initial={{ 
                             scale: 0, 
                             opacity: 0,
-                            rotate: -180
+                            rotate: -180,
+                            x: 0,
+                            y: 0
                           }}
                           animate={{ 
                             scale: 1, 
                             opacity: 1,
-                            rotate: 0
+                            rotate: 0,
+                            x: x,
+                            y: y
                           }}
                           transition={{ 
-                            duration: 1.5,
-                            delay: index * 0.05,
+                            duration: 1.8,
+                            delay: 0.3 + index * 0.05,
                             type: 'spring',
-                            damping: 12
+                            damping: 10,
+                            stiffness: 100
                           }}
                           style={{
                             position: 'absolute',
-                            top: `calc(50% + ${y}px)`,
-                            left: `calc(50% + ${x}px)`,
+                            top: '50%',
+                            left: '50%',
                             transform: 'translate(-50%, -50%)'
                           }}
                         >
@@ -802,32 +824,23 @@ function Slide13() {
                       )
                     })}
 
-                    {/* Debug center point - PUNTO AZUL */}
-                    <div style={{
-                      position: 'fixed',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
-                      width: '20px',
-                      height: '20px',
-                      background: '#0066ff',
-                      borderRadius: '50%',
-                      zIndex: 9999,
-                      boxShadow: '0 0 20px #0066ff'
-                    }} />
 
-                    {/* Central success message */}
+                    {/* Central success message - Perfectly Centered */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 1.5, type: 'spring' }}
                       style={{
                         position: 'fixed',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        textAlign: 'center',
-                        zIndex: 100
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 100,
+                        pointerEvents: 'none'
                       }}
                     >
                       <motion.div
@@ -846,7 +859,11 @@ function Slide13() {
                           padding: '40px 60px',
                           boxShadow: '0 40px 80px rgba(255, 216, 155, 0.6), 0 0 200px rgba(255, 216, 155, 0.3)',
                           backdropFilter: 'blur(20px)',
-                          minWidth: '400px'
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          pointerEvents: 'auto'
                         }}
                       >
                         <motion.h1
@@ -899,12 +916,16 @@ function Slide13() {
                           animate={{ opacity: 1 }}
                           transition={{ delay: 3 }}
                           style={{
-                            fontSize: '1.2rem',
+                            fontSize: '2rem',
                             color: '#ffd89b',
-                            fontWeight: '700'
+                            fontWeight: '900',
+                            textTransform: 'uppercase',
+                            letterSpacing: '2px',
+                            marginTop: '10px',
+                            textShadow: '0 0 30px rgba(255, 216, 155, 0.8)'
                           }}
                         >
-                          Productividad: 1000% 🚀
+                          Productividad al 100% 🚀
                         </motion.p>
                         
                         {/* Epic WBI Message */}
