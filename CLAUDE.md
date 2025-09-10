@@ -20,10 +20,11 @@ Interactive React presentation system with authentication, animated slides, expo
 ## Architecture
 
 ### Tech Stack
-- **Frontend**: React 19.1.1, React Router DOM v7, Framer Motion 12.23
+- **Frontend**: React 19.1.1, React Router DOM v7.8, Framer Motion 12.23
 - **Backend**: Express 4.18, Prisma ORM 6.14 with SQLite
 - **Export**: jspdf 3.0, html2canvas 1.4, docx 9.5, file-saver 2.0
 - **Build**: Vite 7.1.2 with React plugin
+- **Testing**: Puppeteer 24.16 for E2E testing
 - **Icons**: Lucide React 0.539
 
 ### Core Systems
@@ -48,8 +49,9 @@ Interactive React presentation system with authentication, animated slides, expo
   - **musi-kickoffV2**: Enhanced version with updated features
   - **dynamtek**: Command center dashboard (11 slides)
   - **etiquetas-bernardo**: School labels (58 printable items)
-  - **claude-code-wbi**: Claude Code WBI presentation
-  - **claude-code-wbi-equipo**: Team version of Claude Code WBI
+  - **claude-code-wbi**: Claude Code WBI presentation for management
+  - **claude-code-wbi-equipo**: Team version of Claude Code WBI (12 slides)
+  - **claude-code-dynamtek-equipo**: Dynamtek team version of Claude Code (13 slides)
 
 #### Token Sharing System
 - 30-day expiration tokens (12-character alphanumeric)
@@ -79,7 +81,7 @@ Three export modes implemented:
 
 ### Data Management
 - **presentations.js**: Central registry with metadata, categories, tags
-- **Categories**: Personal, Dynantek, WBI with color coding
+- **Categories**: Personal, Dynantek, WBI with color coding and icons
 - **Database**: SQLite with Prisma schema (User, Session models)
 - **User Fields**: username, password, email, name, role, allowedPresentations (JSON)
 

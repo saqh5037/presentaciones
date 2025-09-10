@@ -103,6 +103,21 @@ export const presentations = [
     tags: ['IA', 'Productividad', 'Claude Code', 'Desarrollo', 'DevTools', 'Equipo', 'Onboarding'],
     status: 'active',
     path: '/presentation/claude-code-wbi-equipo'
+  },
+  {
+    id: 'claude-code-dynamtek-equipo',
+    title: 'Claude Code para Dynamtek - Equipo',
+    subtitle: 'Tu Nuevo Compañero de Desarrollo',
+    description: 'Presentación interactiva para el equipo de desarrollo de Dynamtek sobre la adopción de Claude Code como asistente de IA',
+    category: 'Dynantek',
+    thumbnail: '/thumbnails/claude-code.png',
+    createdAt: '2025-09-09',
+    updatedAt: '2025-09-09',
+    slides: 13,
+    duration: '30 min',
+    tags: ['IA', 'Productividad', 'Claude Code', 'Desarrollo', 'DevTools', 'Equipo', 'Onboarding', 'Dynamtek'],
+    status: 'active',
+    path: '/presentation/claude-code-dynamtek-equipo'
   }
 ]
 
