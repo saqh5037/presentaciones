@@ -16,6 +16,7 @@ import DynamtekPresentation from './presentations/dynamtek/DynamtekPresentation'
 import ClaudeCodeWBIPresentation from './presentations/claude-code-wbi/ClaudeCodeWBIPresentation'
 import ClaudeCodeWBIEquipoPresentation from './presentations/claude-code-wbi-equipo/ClaudeCodeWBIEquipoPresentation'
 import ClaudeCodeDynamtekEquipoPresentation from './presentations/claude-code-dynamtek-equipo/ClaudeCodeDynamtekEquipoPresentation'
+import PlanImplementacionIAMicrotecPresentation from './presentations/plan-implementacion-ia-microtec'
 import SharedPresentation from './pages/SharedPresentation'
 import './App.css'
 import './pages/Dashboard.css'
@@ -116,6 +117,13 @@ function App() {
           <Route path="/presentation/claude-code-dynamtek-equipo" element={
             <ProtectedRoute presentationId="claude-code-dynamtek-equipo">
               <ClaudeCodeDynamtekEquipoPresentation />
+            </ProtectedRoute>
+          } />
+          
+          {/* Presentación Plan de Implementación IA Microtec */}
+          <Route path="/presentation/plan-implementacion-ia-microtec" element={
+            <ProtectedRoute presentationId="plan-implementacion-ia-microtec">
+              <PlanImplementacionIAMicrotecPresentation />
             </ProtectedRoute>
           } />
         </Routes>

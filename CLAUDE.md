@@ -43,7 +43,7 @@ Interactive React presentation system with authentication, animated slides, expo
   - Standard viewer at `/presentation/{name}`
   - Export view at `/presentation/{name}/export`
   - Print view at `/presentation/{name}/print`
-- Current presentations in `/src/presentations/`:
+- Current presentations in `/src/presentations/` (14 total):
   - **labsis-expert**: AI lab solution (15 slides with 3a/3b/3c variants)
   - **musi-kickoff**: FIFCO retail project (10 slides)
   - **musi-kickoffV2**: Enhanced version with updated features
@@ -52,6 +52,9 @@ Interactive React presentation system with authentication, animated slides, expo
   - **claude-code-wbi**: Claude Code WBI presentation for management
   - **claude-code-wbi-equipo**: Team version of Claude Code WBI (12 slides)
   - **claude-code-dynamtek-equipo**: Dynamtek team version of Claude Code (13 slides)
+  - **contratacion-proveedores**: Procurement presentation
+  - **wbi-esp**: WBI ESP presentation (new)
+  - **plan-implementacion-ia-microtec**: Microtec AI implementation plan
 
 #### Token Sharing System
 - 30-day expiration tokens (12-character alphanumeric)

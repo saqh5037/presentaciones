@@ -118,6 +118,21 @@ export const presentations = [
     tags: ['IA', 'Productividad', 'Claude Code', 'Desarrollo', 'DevTools', 'Equipo', 'Onboarding', 'Dynamtek'],
     status: 'active',
     path: '/presentation/claude-code-dynamtek-equipo'
+  },
+  {
+    id: 'plan-implementacion-ia-microtec',
+    title: 'Plan de Implementación IA - Microtec',
+    subtitle: 'Estrategia de Transformación Digital Modular y Escalable',
+    description: 'Plan de 18 meses para implementar soluciones de IA en laboratorio Microtec con enfoque modular y escalable',
+    category: 'Microtec',
+    thumbnail: '/thumbnails/microtec-ia.png',
+    createdAt: '2025-09-11',
+    updatedAt: '2025-09-11',
+    slides: 8,
+    duration: '30 min',
+    tags: ['IA', 'Transformación Digital', 'Laboratorio', 'Microtec', 'Roadmap', 'Open Source', 'ROI'],
+    status: 'active',
+    path: '/presentation/plan-implementacion-ia-microtec'
   }
 ]
 
@@ -142,6 +157,13 @@ export const categories = [
     color: '#4ecdc4',
     icon: 'Globe',
     description: 'Presentaciones de WBI (World Business Intelligence)'
+  },
+  {
+    id: 'microtec',
+    name: 'Microtec',
+    color: '#10b981',
+    icon: 'Activity',
+    description: 'Presentaciones de Laboratorio Microtec'
   }
 ]
 
